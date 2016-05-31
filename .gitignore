@@ -12,6 +12,7 @@
 *.lib
 
 # Executables
+snake
 *.exe
 
 # DUB
