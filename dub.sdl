@@ -1,0 +1,8 @@
+name "snake"
+description "Minimal snake implementation with D and SDL2"
+copyright "Copyright © 2016, istarnion"
+authors "istarnion"
+
+dependency "derelict-sdl2" version="~>2.0.0"
+dependency "derelict-gl3" version="~>1.0.18"
+
