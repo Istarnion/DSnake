@@ -56,6 +56,8 @@ void main()
 
     int xVel = 1;
     int yVel = 0;
+    int prevXVel = xVel;
+    int prevYVel = yVel;
 
     int foodX = uniform(0, COLS);
     int foodY = uniform(0, ROWS);
@@ -80,22 +82,22 @@ void main()
                     break;
                 case SDL_KEYDOWN:
                     SDL_Keycode keycode = event.key.keysym.sym;
-                    if ((keycode == SDLK_w || keycode == SDLK_UP) && yVel < 1)
+                    if ((keycode == SDLK_w || keycode == SDLK_UP) && prevYVel < 1)
                     {
                        xVel = 0;
                        yVel = -1;
                     }
-                    else if ((keycode == SDLK_d || keycode == SDLK_RIGHT) && xVel > -1)
+                    else if ((keycode == SDLK_d || keycode == SDLK_RIGHT) && prevXVel > -1)
                     {
                        xVel = 1;
                        yVel = 0;
                     }
-                    else if ((keycode == SDLK_s || keycode == SDLK_DOWN) && yVel > -1)
+                    else if ((keycode == SDLK_s || keycode == SDLK_DOWN) && prevYVel > -1)
                     {
                        xVel = 0;
                        yVel = 1;
                     }
-                    else if ((keycode == SDLK_a || keycode == SDLK_LEFT) && xVel < 1)
+                    else if ((keycode == SDLK_a || keycode == SDLK_LEFT) && prevXVel < 1)
                     {
                        xVel = -1;
                        yVel = 0;
@@ -177,8 +179,10 @@ void main()
                     running = false;
                 }
             }
-        }
 
+            prevXVel = xVel;
+            prevYVel = yVel;
+        }
 
         // Render stuff
         SDL_SetRenderDrawColor(renderer, 0x2D, 0x2D, 0x2D, 0xFF);
