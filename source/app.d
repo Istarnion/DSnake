@@ -2,7 +2,6 @@ import std.stdio;
 import std.random;
 
 import derelict.sdl2.sdl;
-import derelict.sdl2.image;
 
 void main()
 {
@@ -12,12 +11,6 @@ void main()
     if (SDL_Init(SDL_INIT_EVERYTHING))
     {
         writeln("Unable to initialize SDL:\n\t", SDL_GetError());
-    }
-
-    int IMG_FLAGS = IMG_INIT_PNG;
-    if (!(IMG_Init(IMG_FLAGS) & IMG_FLAGS))
-    {
-        writeln("Failed to initialize SDL_Image:\n\t", IMG_GetError());
     }
 
     SDL_Window* window;
